@@ -1,0 +1,69 @@
+<app-map></app-map>
+<div id="mapid" class="sidebar-map">
+    <div id="sidebar" class="leaflet-sidebar collapsed">
+        <!-- Nav tabs -->
+
+        <!-- nav tabs -->
+        <div class="leaflet-sidebar-tabs">
+            <!-- top aligned tabs -->
+            <ul role="tablist">
+                <li><a href="#home" role="tab"><i class="fa fa-bars active"></i></a></li>
+                <li><a href="#profile" role="tab"><i class="fa fa-user"></i></a></li>
+                <li class="disabled"><a href="#messages" role="tab"><i class="fa fa-envelope"></i></a></li>
+                <li><a onclick="alert('i am a JS button')"><i class="fa fa-info"></i></a></li>
+                <li><a href="#autopan" role="tab"><i class="fa fa-arrows"></i></a></li>
+            </ul>
+
+            <!-- bottom aligned tabs -->
+            <ul role="tablist">
+                <li><a href="https://github.com/nickpeihl/leaflet-sidebar-v2"><i class="fa fa-github"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- Tab panes -->
+        <!-- panel content -->
+        <div class="leaflet-sidebar-content">
+            <div class="leaflet-sidebar-pane" id="home">
+                <h1 class="leaflet-sidebar-header">
+@@ -56,14 +58,14 @@ <h1 class="leaflet-sidebar-header">
+
+                <p>A responsive sidebar for the mapping library <a href="http://leafletjs.com/">Leaflet</a>.</p>
+                <p>Compatible with version 0.7 and 1.x (tested up to 1.2.0)</p>
+                <p><b>Select the other panes for a showcase of each feature.</b></p>
+
+                <h2>More examples</h2>
+                <ul>
+                    <li><a href="./autopan.html">Autopanning of map</a></li>
+                    <li><a href="./position-right.html">Right aligned</a></li>
+                    <li><a href="./leaflet-api.html">Dynamic panel content using the JS API</a></li>
+                    <li><a href="./leaflet-0.7.html">Proof that it works with leaflet 0.7 ;)</a></li>
+                    <li><a href="./halfheight.html">The sidebar adapts to map container size</a></li>
+                    <li><a href="./leaflet-latest.html">Proof that it works with the latest leaflet version (if not, please report it!)</a></li>
+                    <li><a href="./leaflet-0.7.html">Proof that it works with leaflet 0.7</a></li>
+                </ul>
+
+                <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+@@ -72,8 +74,19 @@ <h2>More examples</h2>
+                <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+      
+
+            <div class="leaflet-sidebar-pane" id="profile">
+                <h1 class="leaflet-sidebar-header">Profile<span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+            <div class="leaflet-sidebar-pane" id="autopan">
+                <h1 class="leaflet-sidebar-header">
+                    autopan
+                    <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+                <p>
+                    <code>Leaflet.control.sidebar({ autopan: true })</code>
+                    makes shure that the map center always stays visible.
+                </p>
+                <p>
+                    The autopan behviour is responsive as well.
+                    Try opening and closing the sidebar from this pane!
+                </p>
+            </div>
+
+            <div class="leaflet-sidebar-pane" id="messages">
+</div>
+<router-outlet></router-outlet>
