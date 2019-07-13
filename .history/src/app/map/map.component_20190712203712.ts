@@ -71,8 +71,8 @@ this.clusterGroup = new L.markerClusterGroup({
   zoomToBoundsOnClick: true
 });
 this.clusterGroup.on('clustermouseover', function (e) {
-  e.layer.bindTooltip(e.layer.getAllChildMarkers().length + ' UFO sightings in this area (click)');
-  e.layer.openTooltip();
+  e.layer.bindTooltip(e.layer.getAllChildMarkers().length + ' UFO sightings in this area');
+  e.layer.openToolTip();
 });
 var marker = new L.marker([56, -106], { opacity: 0.01 }); //opacity may be set to zero
 marker.bindTooltip('Interactive Map of UFO Sightings Across the U.S.', {permanent: true, className: 'my-label', offset: [-200, 80] });

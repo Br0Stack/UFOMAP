@@ -2,7 +2,6 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import * as L from '../../../node_modules/leaflet';
 import { TopoServiceService } from '../topo-service.service';
 import * as $ from 'jquery';
-import 'leaflet-sidebar-v2';
 import 'leaflet.markercluster';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
@@ -70,15 +69,12 @@ this.clusterGroup = new L.markerClusterGroup({
   showCoverageOnHover: true,
   zoomToBoundsOnClick: true
 });
-this.clusterGroup.on('clustermouseover', function (e) {
-  e.layer.bindTooltip(e.layer.getAllChildMarkers().length + ' UFO sightings in this area (click)');
-  e.layer.openTooltip();
-});
 var marker = new L.marker([56, -106], { opacity: 0.01 }); //opacity may be set to zero
-marker.bindTooltip('Interactive Map of UFO Sightings Across the U.S.', {permanent: true, className: 'my-label', offset: [-200, 80] });
+marker.bindTooltip("Interactive Map of UFO Sightings Across the U.S.", {permanent: true, className: "my-label", offset: [-200, 80] });
 marker.addTo(this.mymap);
 // var legend = L.control({position: 'topleft'});
-// legend.addTo(this.mymap) //TO DO
+// legend.addTo(this.mymap)
+
 //this.getSeries();
   }
 

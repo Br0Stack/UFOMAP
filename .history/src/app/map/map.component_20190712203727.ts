@@ -71,7 +71,7 @@ this.clusterGroup = new L.markerClusterGroup({
   zoomToBoundsOnClick: true
 });
 this.clusterGroup.on('clustermouseover', function (e) {
-  e.layer.bindTooltip(e.layer.getAllChildMarkers().length + ' UFO sightings in this area (click)');
+  e.layer.bindTooltip(e.layer.getAllChildMarkers().length + ' UFO sightings in this area');
   e.layer.openTooltip();
 });
 var marker = new L.marker([56, -106], { opacity: 0.01 }); //opacity may be set to zero
