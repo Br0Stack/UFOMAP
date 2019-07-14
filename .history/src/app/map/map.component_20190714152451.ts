@@ -31,12 +31,7 @@ export class MapComponent implements OnInit {
 }).addTo(this.mymap);
 //add zoom control with your options
 L.control.zoom({
-  position:'bottomleft'
-}).addTo(this.mymap);
-var CartoDB_VoyagerOnlyLabels = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
-	attribution: 'www.EdwinGrier.com',
-	subdomains: 'abcd',
-	maxZoom: 19
+  position:'left'
 }).addTo(this.mymap);
 //     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
 // 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
