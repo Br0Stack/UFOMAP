@@ -1,5 +1,7 @@
 # UFOMap
 
+A responsive interactive leaflet map that displays UFO sighting in the U.S. from 1940 - 2015 with dates and descriptions on mouseover. Click or tap the cluster circles to view sightings in that region. Best viewed in chrome. Leave some feedback!
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
 
 ## Development server
