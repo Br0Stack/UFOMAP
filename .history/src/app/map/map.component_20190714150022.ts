@@ -75,7 +75,7 @@ this.clusterGroup.on('clustermouseover', function (e) {
   e.layer.openTooltip();
 });
 var marker = new L.marker([56, -106], { opacity: 0.01 }); //opacity may be set to zero
-marker.bindTooltip('Map of UFO Sightings In the U.S. 1940-2015', {permanent: true, className: 'my-label', offset: [-200, 80] });
+marker.bindTooltip('Map of UFO Sightings In the U.S. cicra 1940', {permanent: true, className: 'my-label', offset: [-200, 80] });
 marker.addTo(this.mymap);
 // var legend = L.control({position: 'topleft'});
 // legend.addTo(this.mymap) //TO DO

@@ -75,7 +75,7 @@ this.clusterGroup.on('clustermouseover', function (e) {
   e.layer.openTooltip();
 });
 var marker = new L.marker([56, -106], { opacity: 0.01 }); //opacity may be set to zero
-marker.bindTooltip('Map of UFO Sightings In the U.S. 1940-2015', {permanent: true, className: 'my-label', offset: [-200, 80] });
+marker.bindTooltip('Interactive Map of UFO Sightings Across the U.S.', {permanent: true, className: 'my-label', offset: [-200, 80] });
 marker.addTo(this.mymap);
 // var legend = L.control({position: 'topleft'});
 // legend.addTo(this.mymap) //TO DO
@@ -108,37 +108,37 @@ marker.addTo(this.mymap);
 
     
       //var endTime = new Date('02/12/2013 12:00:00 AM');
-      if(shape === 'fireball'){
+      if(shape == 'fireball'){
       var iconImage = 'assets/img/ufo.png';
       }
-      else if(shape === 'chevron'){
+      else if(shape == 'chevron'){
         var iconImage = 'assets/img/chevron.png';
         }
-        else if(shape === 'oval'){
+        else if(shape == 'oval'){
           var iconImage = 'assets/img/oval.png';
           }
-          else if(shape === 'formation'){
+          else if(shape == 'formation'){
             var iconImage = 'assets/img/formation.png';
             }
-            else if(shape === 'sphere'){
+            else if(shape == 'sphere'){
               var iconImage = 'assets/img/sphere.png';
               }
-              else if(shape === 'light'){
+              else if(shape == 'light'){
                 var iconImage = 'assets/img/light.png';
                 }
-                else if(shape === 'rectangle'){
+                else if(shape == 'rectangle'){
                   var iconImage = 'assets/img/rectangle.png';
                   }
-                  else if(shape === 'disk'){
+                  else if(shape == 'disk'){
                     var iconImage = 'assets/img/disk.png';
                     }
-                    else if(shape === 'changing'){
+                    else if(shape == 'changing'){
                       var iconImage = 'assets/img/changing.png';
                       }
-                      else if(shape === 'cigar'){
+                      else if(shape == 'cigar'){
                         var iconImage = 'assets/img/cigar.png';
                         }
-                        else if(shape === 'circle'){
+                        else if(shape == 'circle'){
                           var iconImage = 'assets/img/circle.png';
                           }
                           else
@@ -152,7 +152,7 @@ marker.addTo(this.mymap);
       });
       var markers = [];
 
-      if( country === 'us' ){
+      if( country == 'us' ){
         var marker = L.marker([lat,lng], {icon: icon});
         this.clusterGroup.addLayer(marker);
         marker.bindPopup('Date: ' + date + ' ' + comments);
