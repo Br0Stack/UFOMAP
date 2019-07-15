@@ -24,7 +24,7 @@ export class MapComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.mymap = L.map('mapid', {  zoomControl: false, renderer: L.canvas()}).setView([42.505, -97], 4);
+    this.mymap = L.map('mapid', {renderer: L.canvas()}).setView([42.505, -97], 4);
 
     L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
 	attribution: 'Edwin Grier'
@@ -148,9 +148,6 @@ marker.addTo(this.mymap);
                         else if(shape === 'circle') {
                           var iconImage = 'assets/img/circle.png';
                           }
-                          else if(shape === 'triangle') {
-                            var iconImage = 'assets/img/triangle.png';
-                            }
                           else
                           {
                           var iconImage = 'assets/img/sphere.png';
@@ -160,12 +157,12 @@ marker.addTo(this.mymap);
         iconSize: [30, 30],
         iconAnchor: [10, 9]
       });
-      //var markers = [];
+      var markers = [];
 
       if( country === 'us' ) {
         var marker = L.marker([lat,lng], {icon: icon});
         this.clusterGroup.addLayer(marker);
-        marker.bindPopup('Date: ' + date + ' ' + comments + ' | ' + 'shape:  ' + shape + ' | ' + city);
+        marker.bindPopup('Date: ' + date + ' ' + comments + ' ' + 'shape:  ' + shape + ' | ' + city);
         marker.on('mouseover', function (e) {
           this.openPopup();
       });

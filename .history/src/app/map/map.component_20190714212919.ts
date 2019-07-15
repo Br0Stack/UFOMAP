@@ -24,7 +24,7 @@ export class MapComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.mymap = L.map('mapid', {  zoomControl: false, renderer: L.canvas()}).setView([42.505, -97], 4);
+    this.mymap = L.map('mapid', {renderer: L.canvas()}).setView([42.505, -97], 4);
 
     L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
 	attribution: 'Edwin Grier'
@@ -112,45 +112,44 @@ marker.addTo(this.mymap);
       var lng = jsonURL[a].longitude
       var shape = jsonURL[a].shape
       //var state = jsonURL[a].state
-      //var datetimeEnd = "12/23/2004 07:15"
-      //var endTime = new Date('02/12/2013 12:00:00 AM');
 
-      if(shape === 'fireball') {
+      //var datetimeEnd = "12/23/2004 07:15"
+
+    
+      //var endTime = new Date('02/12/2013 12:00:00 AM');
+      if(shape === 'fireball'){
       var iconImage = 'assets/img/ufo.png';
       }
-      else if(shape === 'chevron') {
+      else if(shape === 'chevron'){
         var iconImage = 'assets/img/chevron.png';
         }
-        else if(shape === 'oval') {
+        else if(shape === 'oval'){
           var iconImage = 'assets/img/oval.png';
           }
-          else if(shape === 'formation') {
+          else if(shape === 'formation'){
             var iconImage = 'assets/img/formation.png';
             }
-            else if(shape === 'sphere') {
+            else if(shape === 'sphere'){
               var iconImage = 'assets/img/sphere.png';
               }
-              else if(shape === 'light') {
+              else if(shape === 'light'){
                 var iconImage = 'assets/img/light.png';
                 }
-                else if(shape === 'rectangle') {
+                else if(shape === 'rectangle'){
                   var iconImage = 'assets/img/rectangle.png';
                   }
-                  else if(shape === 'disk') {
+                  else if(shape === 'disk'){
                     var iconImage = 'assets/img/disk.png';
                     }
-                    else if(shape === 'changing') {
+                    else if(shape === 'changing'){
                       var iconImage = 'assets/img/changing.png';
                       }
-                      else if(shape === 'cigar') {
+                      else if(shape === 'cigar'){
                         var iconImage = 'assets/img/cigar.png';
                         }
-                        else if(shape === 'circle') {
+                        else if(shape === 'circle'){
                           var iconImage = 'assets/img/circle.png';
                           }
-                          else if(shape === 'triangle') {
-                            var iconImage = 'assets/img/triangle.png';
-                            }
                           else
                           {
                           var iconImage = 'assets/img/sphere.png';
@@ -160,19 +159,19 @@ marker.addTo(this.mymap);
         iconSize: [30, 30],
         iconAnchor: [10, 9]
       });
-      //var markers = [];
+      var markers = [];
 
-      if( country === 'us' ) {
+      //if( country === 'us' ) {
         var marker = L.marker([lat,lng], {icon: icon});
         this.clusterGroup.addLayer(marker);
-        marker.bindPopup('Date: ' + date + ' ' + comments + ' | ' + 'shape:  ' + shape + ' | ' + city);
+        marker.bindPopup('Date: ' + date + ' ' + comments);
         marker.on('mouseover', function (e) {
           this.openPopup();
       });
       marker.on('mouseout', function (e) {
           this.closePopup();
       });
-     }
+     //}
 
   }
     this.clusterGroup.addTo(this.mymap);
