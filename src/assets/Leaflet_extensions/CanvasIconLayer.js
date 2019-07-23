@@ -1,5 +1,5 @@
 import * as Rbush from "rbush";
-import { Browser, DomUtil, Layer, setOptions, Util } from "leaflet";
+import { Browser, DomUtil, Layer, setOptions, Util } from "../../Leaflet/dist/leaflet-src.esm";
 
 export default Layer.extend({
 
@@ -340,3 +340,15 @@ export default Layer.extend({
     }
   },
 });
+
+
+function serializeXmlNode(xmlNode) {
+  if (typeof window.XMLSerializer != "undefined") {
+      return (new window.XMLSerializer()).serializeToString(xmlNode);
+  } else if (typeof xmlNode.xml != "undefined") {
+      return xmlNode.xml;
+  }
+  return "";
+}
+
+https://www.linkedin.com/in/garrett-hughes-5320626b/

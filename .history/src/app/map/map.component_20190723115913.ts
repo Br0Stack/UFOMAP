@@ -307,12 +307,11 @@ lolTest() {
 // }
 // new logThis();
 // console.log(typeof(42));
-// for (var i = 1; i <= 4; i++) {
-//   (function(j){
-//   setTimeout(function() {
-//     console.log(j);
-//   }, j * 1000);
-// })(i);
-// }
+for (var j = 1; j <= 4; j++) {
+  setTimeout(function() {
+    console.log(j);
+  }, j * 1000);
 }
+}
+
 }

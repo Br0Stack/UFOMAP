@@ -9,7 +9,7 @@ import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import 'leaflet/dist/images/marker-icon-2x.png';
 import 'leaflet/dist/images/marker-shadow.png';
-//import 'd3';
+import 'd3';
 declare var require: any
 declare var window: any;
 declare var xmlNode: any;
@@ -307,12 +307,11 @@ lolTest() {
 // }
 // new logThis();
 // console.log(typeof(42));
-// for (var i = 1; i <= 4; i++) {
-//   (function(j){
-//   setTimeout(function() {
-//     console.log(j);
-//   }, j * 1000);
-// })(i);
-// }
+for (var j = 1; j <= 4; j++) {
+  setTimeout(function() {
+    console.log(j);
+  }, j * 1000);
 }
+}
+
 }
