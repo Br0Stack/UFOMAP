@@ -82,7 +82,7 @@ this.clusterGroup = new L.markerClusterGroup({
   spiderfyOnMaxZoom: true,
   showCoverageOnHover: true,
   zoomToBoundsOnClick: true,
-  //iconCreateFunction: defineClusterIcon
+  iconCreateFunction: defineClusterIcon
 });
 var categoryField = '5074';
 var rmax = 30;
@@ -279,7 +279,8 @@ marker.addTo(this.mymap);
 
   }
     this.clusterGroup.addTo(this.mymap);
-    this.lolTest();
+  
+
   // getSeries() {
   //   const seriesBody = {
   //     seriesid: ['OEUN000000000000015113001'],
@@ -298,15 +299,4 @@ marker.addTo(this.mymap);
   //        });
   // }
 
-}
-lolTest() {
-'use strict';
-function logThis() {
-  this.desc = 'logger';
-  console.log(this);
-}
-new logThis();
-console.log(typeof(42));
-}
-
-}
+}}

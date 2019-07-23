@@ -22,6 +22,7 @@
     "@syncfusion/ej2-angular-navigations": "^17.1.49",
     "Leaflet.vector-markers": "0.0.6",
     "core-js": "^2.5.4",
+    "d3": "^5.9.7",
     "jquery": "^3.4.1",
     "leaflet": "^1.5.1",
     "leaflet-canvas-marker": "^0.2.0",

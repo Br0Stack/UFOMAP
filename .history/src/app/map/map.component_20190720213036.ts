@@ -11,8 +11,6 @@ import 'leaflet/dist/images/marker-icon-2x.png';
 import 'leaflet/dist/images/marker-shadow.png';
 import * as d3 from "d3";
 declare var require: any
-declare var window: any;
-declare var xmlNode: any;
 
 @Component({
   selector: 'app-map',
@@ -22,7 +20,6 @@ declare var xmlNode: any;
 export class MapComponent implements OnInit {
   mymap: any;
   clusterGroup: any;
-  xmlNode: any;
 
   constructor(public sy?: TopoServiceService) {
    }
@@ -82,7 +79,7 @@ this.clusterGroup = new L.markerClusterGroup({
   spiderfyOnMaxZoom: true,
   showCoverageOnHover: true,
   zoomToBoundsOnClick: true,
-  //iconCreateFunction: defineClusterIcon
+  iconCreateFunction: defineClusterIcon
 });
 var categoryField = '5074';
 var rmax = 30;
@@ -110,7 +107,7 @@ function defineClusterIcon(cluster) {
       //Create a new divIcon and assign the svg markup to the html property
       myIcon = new L.DivIcon({
           html: html,
-          className: 'marker-cluster',
+          className: 'marker-cluster', 
           iconSize: new L.Point(iconDim, iconDim)
       });
   return myIcon;
@@ -172,16 +169,16 @@ function bakeThePie(options) {
   return serializeXmlNode(svg);
 }
 
-
 function serializeXmlNode(xmlNode) {
   var s = new XMLSerializer();
-  if (typeof window.s != "undefined") {
-      return (new window.XMLSerializer()).serializeToString(xmlNode);
+  if (typeof window.XMLSerializer != "undefined") {
+      return (s).serializeToString(xmlNode);
   } else if (typeof xmlNode.xml != "undefined") {
       return xmlNode.xml;
   }
   return "";
 }
+
 this.clusterGroup.on('clustermouseover', function (e) {
   e.layer.bindTooltip(e.layer.getAllChildMarkers().length + ' UFO sightings in this area (click)');
   e.layer.openTooltip();
@@ -279,7 +276,8 @@ marker.addTo(this.mymap);
 
   }
     this.clusterGroup.addTo(this.mymap);
-    this.lolTest();
+  
+
   // getSeries() {
   //   const seriesBody = {
   //     seriesid: ['OEUN000000000000015113001'],
@@ -298,15 +296,4 @@ marker.addTo(this.mymap);
   //        });
   // }
 
-}
-lolTest() {
-'use strict';
-function logThis() {
-  this.desc = 'logger';
-  console.log(this);
-}
-new logThis();
-console.log(typeof(42));
-}
-
-}
+}}

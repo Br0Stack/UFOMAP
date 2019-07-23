@@ -306,7 +306,5 @@ function logThis() {
   console.log(this);
 }
 new logThis();
-console.log(typeof(42));
 }
-
 }
