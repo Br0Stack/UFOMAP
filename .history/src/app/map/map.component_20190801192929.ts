@@ -263,7 +263,9 @@ marker.addTo(this.mymap);
         iconSize: [30, 30],
         iconAnchor: [10, 9]
       });
-      if( country === 'us' || 'canada' ) {
+      //var markers = [];
+
+      if( country === 'us' ) {
         var marker = L.marker([lat,lng], {icon: icon});
         this.clusterGroup.addLayer(marker);
         marker.bindPopup('Date: ' + date + ' ' + comments + ' | ' + 'shape:  ' + shape + ' | ' + city);
@@ -277,8 +279,8 @@ marker.addTo(this.mymap);
 
   }
     this.clusterGroup.addTo(this.mymap);
-    //this.lolTest();
-
+    this.lolTest();
+    
 //Test code for the Jobs Map project:
 
   // getSeries() {
