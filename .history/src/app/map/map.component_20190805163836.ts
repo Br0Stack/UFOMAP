@@ -202,7 +202,8 @@ marker.addTo(this.mymap);
       position: 'left',     // left or right
   }).addTo(this.mymap);
   
- 
+  var x = document.getElementById("apiProgress")
+  x.style.display = "block"
    //var require: any
     const jsonURL = require('../../assets/csvjson.json');
     //console.log(jsonURL)

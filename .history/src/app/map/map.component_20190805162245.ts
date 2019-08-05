@@ -201,8 +201,34 @@ marker.addTo(this.mymap);
       container: 'sidebar', // the DOM container or #ID of a predefined sidebar container that should be used
       position: 'left',     // left or right
   }).addTo(this.mymap);
+  this.loadMapData()
+    //this.lolTest();
+
+//Test code for the Jobs Map project:
+
+  // getSeries() {
+  //   const seriesBody = {
+  //     seriesid: ['OEUN000000000000015113001'],
+  //     startyear: '2018',
+  //     endyear: '2018',
+  //     catalog: true,
+  //     calculations: false,
+  //     //annualaverage: true,
+  //     registrationkey: '324ee24d5dac410485461df0d4f492db'
+  //   };
+  //      this.sy.getSeries(seriesBody).subscribe(
+  //       data => {
+  //         console.log(data);
+  //       //  this.books = data[0]
+  //       //  this.movies = data[1]
+  //        });
+  // }
+
+}
+loadMapData(){
   
- 
+  var x = document.getElementById("apiProgress")
+  x.style.display = "block"
    //var require: any
     const jsonURL = require('../../assets/csvjson.json');
     //console.log(jsonURL)
@@ -260,13 +286,13 @@ marker.addTo(this.mymap);
                           {
                           var iconImage = 'assets/img/sphere.png';
                           }
-      var icon = L.icon({
+      const icon = L.icon({
         iconUrl: iconImage,
         iconSize: [30, 30],
         iconAnchor: [10, 9]
       });
      // if( country === 'us' || 'canada' ) {
-        let marker = L.marker([lat,lng], {icon: icon});
+        const marker = L.marker([lat,lng], {icon: icon});
         this.clusterGroup.addLayer(marker);
         marker.bindPopup('Date: ' + date + ' ' + comments + ' | ' + 'shape:  ' + shape + ' | ' + city);
         marker.on('mouseover', function (e) {
@@ -279,28 +305,8 @@ marker.addTo(this.mymap);
 
   }
     this.clusterGroup.addTo(this.mymap);
-    //this.lolTest();
-
-//Test code for the Jobs Map project:
-
-  // getSeries() {
-  //   const seriesBody = {
-  //     seriesid: ['OEUN000000000000015113001'],
-  //     startyear: '2018',
-  //     endyear: '2018',
-  //     catalog: true,
-  //     calculations: false,
-  //     //annualaverage: true,
-  //     registrationkey: '324ee24d5dac410485461df0d4f492db'
-  //   };
-  //      this.sy.getSeries(seriesBody).subscribe(
-  //       data => {
-  //         console.log(data);
-  //       //  this.books = data[0]
-  //       //  this.movies = data[1]
-  //        });
-  // }
-
+    var x = document.getElementById('apiProgress');
+    x.style.display = 'none';
 }
 lolTest() {
 // 'use strict';
