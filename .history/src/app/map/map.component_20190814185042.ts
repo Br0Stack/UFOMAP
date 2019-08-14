@@ -7,6 +7,7 @@ import * as L from '../../../node_modules/leaflet';
 import {
   TopoServiceService
 } from '../topo-service.service';
+import * as $ from 'jquery';
 import 'leaflet-sidebar-v2';
 import 'leaflet.markercluster';
 import 'leaflet/dist/leaflet.css';
