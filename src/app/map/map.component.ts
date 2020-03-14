@@ -62,7 +62,7 @@ export class MapComponent implements OnInit {
       e.layer.bindTooltip(e.layer.getAllChildMarkers().length + ' UFO sightings in this area (click)');
       e.layer.openTooltip();
     });
-    var marker = new L.marker([56, -106], {
+    const marker = new L.marker([56, -106], {
       opacity: 0.01
     }); //opacity may be set to zero
     marker.bindTooltip('Map of UFO Sightings Across the World', {
