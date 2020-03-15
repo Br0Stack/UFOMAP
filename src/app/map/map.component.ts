@@ -7,6 +7,8 @@ import * as L from '../../../node_modules/leaflet';
 import {
   TopoServiceService
 } from '../topo-service.service';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 import 'leaflet-sidebar-v2';
 import 'leaflet.markercluster';
 import 'leaflet/dist/leaflet.css';
@@ -30,7 +32,7 @@ export class MapComponent implements OnInit {
   xmlNode: any;
   newestAliens: any;
 
-  constructor(public sy ? : TopoServiceService) {}
+  constructor(public sy ?: TopoServiceService, public ngxLoader?: NgxUiLoaderService) {}
 
   ngOnInit() {
     this.mymap = L.map('mapid', {
@@ -94,7 +96,6 @@ export class MapComponent implements OnInit {
   }
 
   populateMap(alienSightings, type) {
-    this.ngxLoader.start();
     alienSightings.forEach(element => {
       let city, state, summary, duration, date, lat, lng, shape, comments, country, url = '';
       if (type === 'api') {
@@ -228,6 +229,7 @@ export class MapComponent implements OnInit {
       }
     });
     this.clusterGroup.addTo(this.mymap);
+    document.getElementById("apiProgress").style.display = "none";
   }
 
   lolTest() {

@@ -1,9 +1,11 @@
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 
-const endpoint = 'http://ufo-api.herokuapp.com/api/sightings/search?from=209&to=2021&limit=999999';
+const endpoint = 'http://ufo-api.herokuapp.com/api/sightings/search?from=2000&to=2021&limit=999999';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -13,8 +15,9 @@ const httpOptions = {
 })
 export class TopoServiceService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private ngxLoader: NgxUiLoaderService) {
     (function() {
+      // ngxLoader.start();
       const cors_api_host = 'cors-anywhere.herokuapp.com';
       const cors_api_url = 'https://' + cors_api_host + '/';
       const slice = [].slice;

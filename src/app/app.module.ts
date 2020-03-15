@@ -15,10 +15,9 @@ import { MapComponent } from './map/map.component';
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    NgxUiLoaderModule
+    NgxUiLoaderModule,
   ],
   exports: [
-    NgxUiLoaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
