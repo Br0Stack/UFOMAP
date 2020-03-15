@@ -31,6 +31,7 @@
     "leaflet-sidebar": "^0.2.0",
     "leaflet-sidebar-v2": "^3.1.1",
     "leaflet.markercluster": "^1.4.1",
+    "ngx-ui-loader": "^7.2.2",
     "rbush": "^3.0.0",
     "rxjs": "~6.3.3",
     "sidebar-v2": "^0.4.0",

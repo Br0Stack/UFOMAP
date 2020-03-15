@@ -89,11 +89,12 @@ export class MapComponent implements OnInit {
       const alienSightings = res.sightings;
       this.populateMap(alienSightings, 'api');
     });
-    const jsonURL = require('../../assets/csvjson.json');
-    this.populateMap(jsonURL, 'json');
+    // const jsonURL = require('../../assets/csvjson.json');
+    // this.populateMap(jsonURL, 'json');
   }
 
   populateMap(alienSightings, type) {
+    this.ngxLoader.start();
     alienSightings.forEach(element => {
       let city, state, summary, duration, date, lat, lng, shape, comments, country, url = '';
       if (type === 'api') {

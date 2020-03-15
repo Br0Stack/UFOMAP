@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 
-const endpoint = 'http://ufo-api.herokuapp.com/api/sightings/search?from=2015&to=2021&limit=999999';
+const endpoint = 'http://ufo-api.herokuapp.com/api/sightings/search?from=209&to=2021&limit=999999';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
