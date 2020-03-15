@@ -15,7 +15,7 @@ import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import 'leaflet/dist/images/marker-icon-2x.png';
 import 'leaflet/dist/images/marker-shadow.png';
 //import 'd3';
-declare let require: any
+declare let require: any;
 // declare let window: any;
 // declare let xmlNode: any;
 
@@ -30,7 +30,7 @@ export class MapComponent implements OnInit {
   xmlNode: any;
   newestAliens: any;
 
-  constructor(public sy ? : TopoServiceService) {}
+  constructor(public sy ?: TopoServiceService) {}
 
   ngOnInit() {
     this.mymap = L.map('mapid', {
@@ -48,7 +48,7 @@ export class MapComponent implements OnInit {
     let CartoDB_VoyagerOnlyLabels = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
       attribution: 'www.EdwinGrier.com',
       subdomains: 'abcd',
-      maxZoom: 19
+      maxZoom: 18
     }).addTo(this.mymap);
 
     this.clusterGroup = new L.markerClusterGroup({
@@ -81,7 +81,7 @@ export class MapComponent implements OnInit {
       position: 'left', // left or right
     }).addTo(this.mymap);
 
-    this.makeInitialApiCall()
+    this.makeInitialApiCall();
   }
 
   makeInitialApiCall() {
@@ -95,14 +95,14 @@ export class MapComponent implements OnInit {
 
   populateMap(alienSightings, type) {
     alienSightings.forEach(element => {
-      let city, state, summary, duration, date, lat, lng, shape, comments, country = '';
+      let city, state, summary, duration, date, lat, lng, shape, comments, country, url = '';
       if (type === 'api') {
-        console.log(element)
         city = element.city;
         state = element.state;
         summary = element.summary;
         duration = element.duration;
         date = element.date;
+        url = element.url;
         if (element.loc && element.loc[1] && element.loc[0]) {
           lat = element.loc[1];
           lng = element.loc[0];
@@ -212,17 +212,18 @@ export class MapComponent implements OnInit {
         });
         this.clusterGroup.addLayer(marker);
         if (type === 'api') {
+          const embeddedUrl = `<a href=${url} target=\\"_blank\\"> More Info</a>`;
           marker.bindPopup('Date: ' + date + ' ' + summary + ' | ' + 'shape:  ' + shape +
-          ' | ' + 'duration:  ' + duration + ' | ' + city  + ' | ' + state);
+          ' | ' + 'duration:  ' + duration + ' | ' + city  + ' | ' + state + ' | More info: ' + embeddedUrl );
         } else {
           marker.bindPopup('Date: ' + date + ' ' + comments + ' | ' + 'shape:  ' + shape + ' | ' + city);
         }
       marker.on('mouseover', function (e) {
         this.openPopup();
       });
-      marker.on('mouseout', function (e) {
-        this.closePopup();
-      });
+      // marker.on('mouseout', function (e) {
+      //   this.closePopup();
+      // });
       }
     });
     this.clusterGroup.addTo(this.mymap);
