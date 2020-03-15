@@ -30,7 +30,7 @@ export class MapComponent implements OnInit {
   xmlNode: any;
   newestAliens: any;
 
-  constructor(public sy ?: TopoServiceService) {}
+  constructor(public sy ? : TopoServiceService) {}
 
   ngOnInit() {
     this.mymap = L.map('mapid', {
@@ -122,81 +122,81 @@ export class MapComponent implements OnInit {
         case 'Fireball':
           iconImage = 'assets/img/ufo.png';
           break;
-          case 'fireball':
-            iconImage = 'assets/img/ufo.png';
-            break;
+        case 'fireball':
+          iconImage = 'assets/img/ufo.png';
+          break;
         case 'chevron':
           iconImage = 'assets/img/chevron.png';
           break;
-          case 'Chevron':
-            iconImage = 'assets/img/chevron.png';
-            break;
+        case 'Chevron':
+          iconImage = 'assets/img/chevron.png';
+          break;
         case 'oval':
           iconImage = 'assets/img/oval.png';
           break;
-          case 'Oval':
-            iconImage = 'assets/img/oval.png';
-            break;
+        case 'Oval':
+          iconImage = 'assets/img/oval.png';
+          break;
         case 'formation':
           iconImage = 'assets/img/formation.png';
           break;
-          case 'Formation':
-            iconImage = 'assets/img/formation.png';
-            break;
+        case 'Formation':
+          iconImage = 'assets/img/formation.png';
+          break;
         case 'sphere':
           iconImage = 'assets/img/sphere.png';
           break;
-          case 'Sphere':
-            iconImage = 'assets/img/sphere.png';
-            break;
+        case 'Sphere':
+          iconImage = 'assets/img/sphere.png';
+          break;
         case 'light':
           iconImage = 'assets/img/light.png';
           break;
-          case 'Light':
-            iconImage = 'assets/img/light.png';
-            break;
+        case 'Light':
+          iconImage = 'assets/img/light.png';
+          break;
         case 'rectangle':
           iconImage = 'assets/img/rectangle.png';
           break;
-          case 'Rectangle':
-            iconImage = 'assets/img/rectangle.png';
-            break;
+        case 'Rectangle':
+          iconImage = 'assets/img/rectangle.png';
+          break;
         case 'disk':
           iconImage = 'assets/img/disk.png';
           break;
-          case 'Disk':
-            iconImage = 'assets/img/disk.png';
-            break;
+        case 'Disk':
+          iconImage = 'assets/img/disk.png';
+          break;
         case 'changing':
           iconImage = 'assets/img/changing.png';
           break;
-          case 'Changing':
-            iconImage = 'assets/img/changing.png';
-            break;
+        case 'Changing':
+          iconImage = 'assets/img/changing.png';
+          break;
         case 'cigar':
           iconImage = 'assets/img/cigar.png';
           break;
-          case 'Cigar':
-            iconImage = 'assets/img/cigar.png';
-            break;
+        case 'Cigar':
+          iconImage = 'assets/img/cigar.png';
+          break;
         case 'circle':
           iconImage = 'assets/img/circle.png';
           break;
-          case 'Circle':
-            iconImage = 'assets/img/circle.png';
-            break;
+        case 'Circle':
+          iconImage = 'assets/img/circle.png';
+          break;
         case 'triangle':
           iconImage = 'assets/img/triangle.png';
           break;
-          case 'Triangle':
-            iconImage = 'assets/img/triangle.png';
-            break;
+        case 'Triangle':
+          iconImage = 'assets/img/triangle.png';
+          break;
         case 'cigar':
           iconImage = 'assets/img/cigar.png';
           break;
-          case 'Cigar':
-            iconImage = 'assets/img/cigar.png';
-            break;
+        case 'Cigar':
+          iconImage = 'assets/img/cigar.png';
+          break;
         default:
           iconImage = 'assets/img/sphere.png';
       }
@@ -214,16 +214,16 @@ export class MapComponent implements OnInit {
         if (type === 'api') {
           const embeddedUrl = `<a href=${url} target=\\"_blank\\"> More Info</a>`;
           marker.bindPopup('Date: ' + date + ' ' + summary + ' | ' + 'shape:  ' + shape +
-          ' | ' + 'duration:  ' + duration + ' | ' + city  + ' | ' + state + ' | More info: ' + embeddedUrl );
+            ' | ' + 'duration:  ' + duration + ' | ' + city + ' | ' + state + ' | More info: ' + embeddedUrl);
         } else {
           marker.bindPopup('Date: ' + date + ' ' + comments + ' | ' + 'shape:  ' + shape + ' | ' + city);
         }
-      marker.on('mouseover', function (e) {
-        this.openPopup();
-      });
-      // marker.on('mouseout', function (e) {
-      //   this.closePopup();
-      // });
+        marker.on('mouseover', function (e) {
+          this.openPopup();
+        });
+        // marker.on('mouseout', function (e) {
+        //   this.closePopup();
+        // });
       }
     });
     this.clusterGroup.addTo(this.mymap);
