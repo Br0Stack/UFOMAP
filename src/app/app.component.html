@@ -108,6 +108,12 @@
                                    Settings coming soon!
                                    <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/"                 title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"                 title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
                                    <img src="assets/img/lol.jpg" />
+                                   Enter Zip Code to See Sightings in Your Area:
+                                   <input #newZip
+                                   (keyup.enter)="getLocation(newZip.value)"
+                                   (blur)="getLocation(newZip.value); getLocation.value='' ">
+                             
+                                 <button (click)="getLocation(newZip.value)">Submit</button>
                                 </div>
                         </div>
                     </div>

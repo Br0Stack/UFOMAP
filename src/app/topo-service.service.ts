@@ -9,6 +9,9 @@ const endpoint = 'http://ufo-api.herokuapp.com/api/sightings/search?from=2000&to
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
+const geoLocatorUrl = 'http://www.mapquestapi.com/geocoding/v1/address';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -44,5 +47,10 @@ export class TopoServiceService {
     return this.http.get(endpoint).pipe(
       map(this.extractData));
   }
-
+  getLocations(address) {
+    console.log(address)
+    const url = 'https://geocode.xyz/' + address + '?json=1';
+    return this.http.get(url).pipe(
+      map(this.extractData));
+  }
 }
