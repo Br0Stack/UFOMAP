@@ -32,7 +32,7 @@ export class MapComponent implements OnInit {
   xmlNode: any;
   newestAliens: any;
 
-  constructor(public sy ?: TopoServiceService, public ngxLoader?: NgxUiLoaderService) {}
+  constructor(public sy: TopoServiceService, public ngxLoader: NgxUiLoaderService) {}
 
   ngOnInit() {
     this.mymap = L.map('mapid', {
@@ -228,8 +228,9 @@ export class MapComponent implements OnInit {
         // });
       }
     });
+    this.ngxLoader.stop();
     this.clusterGroup.addTo(this.mymap);
-    document.getElementById("apiProgress").style.display = "none";
+    document.getElementById('apiProgress').style.display = 'none';
   }
 
   lolTest() {

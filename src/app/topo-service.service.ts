@@ -18,9 +18,9 @@ const geoLocatorUrl = 'http://www.mapquestapi.com/geocoding/v1/address';
 })
 export class TopoServiceService {
 
-  constructor(private http: HttpClient, private ngxLoader: NgxUiLoaderService) {
+  constructor(private http: HttpClient, public ngxLoader: NgxUiLoaderService) {
     (function() {
-      // ngxLoader.start();
+      ngxLoader.start();
       const cors_api_host = 'cors-anywhere.herokuapp.com';
       const cors_api_url = 'https://' + cors_api_host + '/';
       const slice = [].slice;
