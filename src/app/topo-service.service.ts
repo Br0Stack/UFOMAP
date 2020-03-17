@@ -20,7 +20,6 @@ export class TopoServiceService {
 
   constructor(private http: HttpClient, public ngxLoader: NgxUiLoaderService) {
     (function() {
-      ngxLoader.start();
       const cors_api_host = 'cors-anywhere.herokuapp.com';
       const cors_api_url = 'https://' + cors_api_host + '/';
       const slice = [].slice;

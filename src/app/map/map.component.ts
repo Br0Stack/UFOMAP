@@ -228,7 +228,6 @@ export class MapComponent implements OnInit {
         // });
       }
     });
-    this.ngxLoader.stop();
     this.clusterGroup.addTo(this.mymap);
     document.getElementById('apiProgress').style.display = 'none';
   }
