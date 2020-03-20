@@ -16,6 +16,8 @@ import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import 'leaflet/dist/images/marker-icon-2x.png';
 import 'leaflet/dist/images/marker-shadow.png';
+import MiniMap from 'leaflet-minimap';
+import '../../../node_modules/magnifying/leaflet.magnifyingglass';
 //import 'd3';
 declare let require: any;
 // declare let window: any;
@@ -31,6 +33,7 @@ export class MapComponent implements OnInit {
   clusterGroup: any;
   xmlNode: any;
   newestAliens: any;
+  markers: any = [];
 
   constructor(public sy: TopoServiceService, public ngxLoader: NgxUiLoaderService) {}
 
@@ -40,9 +43,16 @@ export class MapComponent implements OnInit {
       renderer: L.canvas()
     }).setView([42.505, -97], 4);
 
-    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    const tile = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
       attribution: 'Edwin Grier'
-    }).addTo(this.mymap);
+    });
+    tile.addTo(this.mymap);
+    const miniTile = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+      attribution: 'Edwin Grier'
+    });
+    const magniTile = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+      attribution: 'Edwin Grier'
+    });
     //add zoom control with your options
     L.control.zoom({
       position: 'bottomleft'
@@ -73,6 +83,17 @@ export class MapComponent implements OnInit {
       offset: [-200, 80]
     });
     marker.addTo(this.mymap);
+    const options = {
+      position: 'bottomright',
+      zoomAnimation: true,
+      toggleDisplay: true,
+
+    };
+    new MiniMap(miniTile, options).addTo(this.mymap);
+  //   const magnifyingGlass = L.magnifyingGlass({
+  //     layers: [ magniTile, ...this.markers ]
+  // });
+  // this.mymap.addLayer(magnifyingGlass);
   }
 
   ngAfterViewInit() {
@@ -213,6 +234,7 @@ export class MapComponent implements OnInit {
           icon: icon
         });
         this.clusterGroup.addLayer(marker);
+        this.markers.push(marker);
         if (type === 'api') {
           const embeddedUrl = `<a href=${url} target=\\"_blank\\"> More Info</a>`;
           marker.bindPopup('Date: ' + date + ' ' + summary + ' | ' + 'shape:  ' + shape +
