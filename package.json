@@ -25,6 +25,7 @@
     "d3": "^5.9.7",
     "jquery": "^3.4.1",
     "leaflet": "^1.5.1",
+    "leaflet-bookmarks": "^0.4.0",
     "leaflet-canvas-marker": "^0.2.0",
     "leaflet-canvas-marker-labinno": "^1.0.0",
     "leaflet-markercluster": "^0.2.2",

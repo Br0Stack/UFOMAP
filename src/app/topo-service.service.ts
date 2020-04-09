@@ -47,7 +47,7 @@ export class TopoServiceService {
       map(this.extractData));
   }
   getLocations(address) {
-    console.log(address)
+    console.log(address);
     const url = 'https://geocode.xyz/' + address + '?json=1';
     return this.http.get(url).pipe(
       map(this.extractData));

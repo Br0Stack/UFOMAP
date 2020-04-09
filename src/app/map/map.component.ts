@@ -17,7 +17,6 @@ import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import 'leaflet/dist/images/marker-icon-2x.png';
 import 'leaflet/dist/images/marker-shadow.png';
 import MiniMap from 'leaflet-minimap';
-import '../../../node_modules/magnifying/leaflet.magnifyingglass';
 //import 'd3';
 declare let require: any;
 // declare let window: any;
@@ -84,12 +83,17 @@ export class MapComponent implements OnInit {
     });
     marker.addTo(this.mymap);
     const options = {
-      position: 'bottomright',
+      position: 'bottomleft',
       zoomAnimation: true,
       toggleDisplay: true,
 
     };
     new MiniMap(miniTile, options).addTo(this.mymap);
+  //   const control = new L.Control.Bookmarks({
+  //     name: 'ufos-bookmarks', // defaults to 'leaflet-bookmarks'
+  //     localStorage: true // if you want to use local variable for storage
+  // });
+
   //   const magnifyingGlass = L.magnifyingGlass({
   //     layers: [ magniTile, ...this.markers ]
   // });
@@ -111,7 +115,11 @@ export class MapComponent implements OnInit {
     this.sy.getAliens().subscribe((res: any) => {
       const alienSightings = res.sightings;
       this.populateMap(alienSightings, 'api');
-    });
+    }, err => {
+      if (err) {
+        this.sy.getAliens();
+      }
+    console.log('HTTP Error', err); });
     // const jsonURL = require('../../assets/csvjson.json');
     // this.populateMap(jsonURL, 'json');
   }
@@ -252,6 +260,15 @@ export class MapComponent implements OnInit {
     });
     this.clusterGroup.addTo(this.mymap);
     document.getElementById('apiProgress').style.display = 'none';
+
+    this.mymap.fire('bookmark:add', {
+      data: {
+        id: 'area51', // make sure it's unique,
+        name: 'Famous Area 51 Sightings',
+        latlng: [14, -115], // important, we're dealing with JSON here,
+        your_key: 'your value'
+      }
+    });
   }
 
   lolTest() {
