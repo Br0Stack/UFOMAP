@@ -76,14 +76,14 @@ export class MapComponent implements OnInit {
     const marker = new L.marker([56, -106], {
       opacity: 0.01
     }); //opacity may be set to zero
-    marker.bindTooltip('Map of UFO Sightings Across the World', {
-      permanent: true,
-      className: 'my-label',
-      offset: [-200, 80]
-    });
-    marker.addTo(this.mymap);
+    // marker.bindTooltip('Map of UFO Sightings Across the World', {
+    //   permanent: true,
+    //   className: 'my-label',
+    //   offset: [-200, 80]
+    // });
+    // marker.addTo(this.mymap);
     const options = {
-      position: 'bottomleft',
+      position: 'bottomright',
       zoomAnimation: true,
       toggleDisplay: true,
 
@@ -229,7 +229,7 @@ export class MapComponent implements OnInit {
           iconImage = 'assets/img/cigar.png';
           break;
         default:
-          iconImage = 'assets/img/sphere.png';
+          iconImage = 'assets/img/other.png';
       }
       const icon = L.icon({
         iconUrl: iconImage,
