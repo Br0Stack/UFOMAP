@@ -23,7 +23,7 @@
     "Leaflet.vector-markers": "0.0.6",
     "core-js": "^2.5.4",
     "d3": "^5.9.7",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "leaflet": "^1.5.1",
     "leaflet-bookmarks": "^0.4.0",
     "leaflet-canvas-marker": "^0.2.0",
