@@ -17,6 +17,8 @@ import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import 'leaflet/dist/images/marker-icon-2x.png';
 import 'leaflet/dist/images/marker-shadow.png';
 import MiniMap from 'leaflet-minimap';
+// @ts-ignore
+import * as data from '../../assets/dataset/nuforc_reports.json';
 //import 'd3';
 declare let require: any;
 // declare let window: any;
@@ -112,19 +114,14 @@ export class MapComponent implements OnInit {
   }
 
   makeInitialApiCall() {
-    this.sy.getAliens().subscribe((res: any) => {
-      const alienSightings = res.sightings;
+      const alienSightings = data.data; 
       this.populateMap(alienSightings, 'api');
-    }, err => {
-      if (err) {
-        this.sy.getAliens();
-      }
-    console.log('HTTP Error', err); });
     // const jsonURL = require('../../assets/csvjson.json');
     // this.populateMap(jsonURL, 'json');
   }
 
   populateMap(alienSightings, type) {
+    console.log(alienSightings);
     alienSightings.forEach(element => {
       let city, state, summary, duration, date, lat, lng, shape, comments, country, url = '';
       if (type === 'api') {
@@ -132,11 +129,11 @@ export class MapComponent implements OnInit {
         state = element.state;
         summary = element.summary;
         duration = element.duration;
-        date = element.date;
-        url = element.url;
-        if (element.loc && element.loc[1] && element.loc[0]) {
-          lat = element.loc[1];
-          lng = element.loc[0];
+        date = element.date_time;
+        url = element.report_link;
+        if (element.city_latitude && element.city_longitude) {
+          lat = element.city_latitude;
+          lng = element.city_longitude;
         }
         shape = element.shape;
       } else {

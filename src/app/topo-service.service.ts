@@ -5,11 +5,11 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 
-const endpoint = 'http://ufo-api.herokuapp.com/api/sightings/search?from=2000&to=2021&limit=999999';
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
-const geoLocatorUrl = 'http://www.mapquestapi.com/geocoding/v1/address';
+// const endpoint = 'http://ufo-api.herokuapp.com/api/sightings/search?from=2000&to=2021&limit=999999';
+// const httpOptions = {
+//   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+// };
+// const geoLocatorUrl = 'http://www.mapquestapi.com/geocoding/v1/address';
 
 
 
@@ -19,22 +19,22 @@ const geoLocatorUrl = 'http://www.mapquestapi.com/geocoding/v1/address';
 export class TopoServiceService {
 
   constructor(private http: HttpClient, public ngxLoader: NgxUiLoaderService) {
-    (function() {
-      const cors_api_host = 'cors-anywhere.herokuapp.com';
-      const cors_api_url = 'https://' + cors_api_host + '/';
-      const slice = [].slice;
-      const origin = window.location.protocol + '//' + window.location.host;
-      const open = XMLHttpRequest.prototype.open;
-      XMLHttpRequest.prototype.open = function() {
-        const args = slice.call(arguments);
-        const targetOrigin = /^https?:\/\/([^\/]+)/i.exec(args[1]);
-          if (targetOrigin && targetOrigin[0].toLowerCase() !== origin &&
-              targetOrigin[1] !== cors_api_host) {
-              args[1] = cors_api_url + args[1];
-          }
-          return open.apply(this, args);
-      };
-  })();
+  //   (function() {
+  //     const cors_api_host = 'cors-anywhere.herokuapp.com';
+  //     const cors_api_url = 'https://' + cors_api_host + '/';
+  //     const slice = [].slice;
+  //     const origin = window.location.protocol + '//' + window.location.host;
+  //     const open = XMLHttpRequest.prototype.open;
+  //     XMLHttpRequest.prototype.open = function() {
+  //       const args = slice.call(arguments);
+  //       const targetOrigin = /^https?:\/\/([^\/]+)/i.exec(args[1]);
+  //         if (targetOrigin && targetOrigin[0].toLowerCase() !== origin &&
+  //             targetOrigin[1] !== cors_api_host) {
+  //             args[1] = cors_api_url + args[1];
+  //         }
+  //         return open.apply(this, args);
+  //     };
+  // })();
 
    }
 
@@ -42,10 +42,10 @@ export class TopoServiceService {
     const body = res;
     return body || { };
   }
-  getAliens(): Observable<any> {
-    return this.http.get(endpoint).pipe(
-      map(this.extractData));
-  }
+  // getAliens(): Observable<any> {
+  //   return this.http.get(endpoint).pipe(
+  //     map(this.extractData));
+  // }
   getLocations(address) {
     console.log(address);
     const url = 'https://geocode.xyz/' + address + '?json=1';
