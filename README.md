@@ -2,6 +2,8 @@
 
 A responsive interactive leaflet map that displays UFO sighting across the world from 1940 - present day with dates and descriptions on mouseover. Click or tap the cluster circles to view sightings in that region. Best viewed in chrome. Leave some feedback!
 
+* This project was one of the first I ever made, it was made for fun, and is not maintained any longer. Please excuse the awful code. Keeping this one public due to lots of interest from my mentees :) *
+
 ![Image of UFO Sightings!](https://github.com/spenceg85/UFOMAP/blob/master/UFOs.JPG)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
